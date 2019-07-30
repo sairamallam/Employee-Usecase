@@ -9,11 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
 @Entity
 @Table(name="EMPLOYEE_DETAILS")
-@Data
+//@Data
+@Setter @Getter @ToString
 public class EmployeeDetails implements Serializable{
 	
 	

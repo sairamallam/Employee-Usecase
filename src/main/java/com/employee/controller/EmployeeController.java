@@ -19,34 +19,38 @@ import com.employee.service.IEmployeeService;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-	
-@Autowired IEmployeeService iEmployeeService;
+
+	@Autowired
+	IEmployeeService iEmployeeService;
+
 	@PostMapping("/registration")
-	public ResponseEntity<String> registration(@RequestBody EmployeeDetails employeeDetails){
+	public ResponseEntity<String> registration(@RequestBody EmployeeDetails employeeDetails) {
 		return iEmployeeService.registration(employeeDetails);
-		
+
 	}
+
 	@PutMapping("/updation")
-	public ResponseEntity<String> update(@RequestBody EmployeeDetails employeeDetails){
+	public ResponseEntity<String> update(@RequestBody EmployeeDetails employeeDetails) {
 		return iEmployeeService.update(employeeDetails);
-		
+
 	}
-	
+
 	@GetMapping("/employees/{employeeId}")
-	public ResponseEntity<EmployeeDetails> getEmployee(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<EmployeeDetails> getEmployee(@PathVariable("employeeId") Long employeeId) {
 		return iEmployeeService.getEmployee(employeeId);
-		
+
 	}
+
 	@GetMapping("/employees")
-	public ResponseEntity<List<EmployeeDetails>> getAllEmployee(){
+	public ResponseEntity<List<EmployeeDetails>> getAllEmployee() {
 		return iEmployeeService.getAllEmployee();
-		
+
 	}
-	
+
 	@DeleteMapping("/employees/{employeeId}")
-	public ResponseEntity<String> deleteEmployee(@PathVariable("employeeId")Long employeeId){
+	public ResponseEntity<String> deleteEmployee(@PathVariable("employeeId") Long employeeId) {
 		return iEmployeeService.deleteEmployee(employeeId);
-		
+
 	}
 
 }

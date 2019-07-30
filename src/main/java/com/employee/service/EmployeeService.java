@@ -13,44 +13,43 @@ import com.employee.repository.EmployeeDetailsRepository;
 
 @Service
 public class EmployeeService implements IEmployeeService {
-@Autowired EmployeeDetailsRepository  employeeDetailsRepository;
+	@Autowired
+	EmployeeDetailsRepository employeeDetailsRepository;
 
-@Override
+	@Override
 	public ResponseEntity<String> registration(EmployeeDetails employeeDetails) {
-	   
-	employeeDetailsRepository.save(employeeDetails);
-		return new ResponseEntity<>("employee sucsessfully registerd",HttpStatus.OK);
+
+		employeeDetailsRepository.save(employeeDetails);
+		return new ResponseEntity<>("employee sucsessfully registerd", HttpStatus.OK);
 	}
 
 	@Override
 	public ResponseEntity<String> update(EmployeeDetails employeeDetails) {
-		 if(!employeeDetailsRepository.findById(employeeDetails.getEmployeeId()).isPresent())
-			 throw new EmployeeException("employee not existed");
+		if (!employeeDetailsRepository.findById(employeeDetails.getEmployeeId()).isPresent())
+			throw new EmployeeException("employee not existed");
 
-		    employeeDetailsRepository.save(employeeDetails);
-			return new ResponseEntity<>("employee sucsessfully updated",HttpStatus.OK);
-		
+		employeeDetailsRepository.save(employeeDetails);
+		return new ResponseEntity<>("employee sucsessfully updated", HttpStatus.OK);
+
 	}
 
 	@Override
 	public ResponseEntity<EmployeeDetails> getEmployee(Long employeeId) {
-		return new ResponseEntity<> (employeeDetailsRepository.findById(employeeId).get(),HttpStatus.OK);
+		return new ResponseEntity<>(employeeDetailsRepository.findById(employeeId).get(), HttpStatus.OK);
 	}
 
 	@Override
 	public ResponseEntity<List<EmployeeDetails>> getAllEmployee() {
-		return new ResponseEntity<> (employeeDetailsRepository.findAll(),HttpStatus.OK);
+		return new ResponseEntity<>(employeeDetailsRepository.findAll(), HttpStatus.OK);
 	}
 
 	@Override
 	public ResponseEntity<String> deleteEmployee(Long employeeId) {
-		 if(!employeeDetailsRepository.findById(employeeId).isPresent())
-			 throw new EmployeeException("employee not existed");
+		if (!employeeDetailsRepository.findById(employeeId).isPresent())
+			throw new EmployeeException("employee not existed");
 
-		 employeeDetailsRepository.deleteById(employeeId);
-		 return new ResponseEntity<>(employeeId+" deleted succsessfully",HttpStatus.OK);
+		employeeDetailsRepository.deleteById(employeeId);
+		return new ResponseEntity<>(employeeId + " deleted succsessfully", HttpStatus.OK);
 	}
 
-	
-	
 }
