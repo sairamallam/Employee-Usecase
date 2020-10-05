@@ -6,32 +6,62 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
-@Table(name="EMPLOYEE_DETAILS")
-//@Data
-@Setter @Getter @ToString
-public class EmployeeDetails implements Serializable{
-	
-	
+@Setter
+@Getter
+@ToString
+public class EmployeeDetails implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long employeeId;
-	private String employeeName;
-	private String employeeAddress;
-	private String employeeDesignation;
-	private Double employeeSalary;
+	
+	//self details
+	private String title;
+	private String surname;
+	private String firstName;
+	private String middleName;
+	private String dateOfBirth;
+	private String marrigeStatus;
+	private String email;
+	private String phone;
+	private String altPhone;
+
+
+	private String countryOfBirth;
+	private String state;
+	private String district;
+	private String address;
+	private String postcode;
+
+	
+	//identity cards
+	
+//	private String aadhar;
+//	private String panNumber;
+//	private String rationCard;
+//	
+
+	//Foreign keys
+//	private String employeeDesignationId;
+//	private String employeeType;
+//	private String guardianId;
 
 
 	
+	//Bank details
+	private Double employeeSalaryPackage;
+	private String accountNumber;
+	private String ifscCode;
+	private String pfNumber;
+	private String pfUan;
+	private String esiNumber;
 
 }

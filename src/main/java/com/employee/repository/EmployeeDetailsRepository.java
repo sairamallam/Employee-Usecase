@@ -7,5 +7,4 @@ import com.employee.model.EmployeeDetails;
 public interface EmployeeDetailsRepository  extends JpaRepository<EmployeeDetails, Long> {
 
 	
-	
 }
