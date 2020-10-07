@@ -8,12 +8,28 @@ import lombok.Setter;
 public class EmployeeDetailsDto {
 
 	private Long employeeId;
-	private String employeeDesignationId;
-	private String employeeName;
-	private String employeeAddress;
-	private Double employeeSalary;
-	private String aadhar;
-	private String panCard;
+	
+	//self details
+	private String title;
+	private String surname;
+	private String firstName;
+	private String middleName;
+	private String dateOfBirth;
+	private String marrigeStatus;
+	private String email;
+	private String phone;
+	private String altPhone;
+
+
+	private String countryOfBirth;
+	private String state;
+	private String district;
+	private String address;
+	private String pinCode;   
+
+	
+	//Bank details
+	private Double employeeSalaryPackage;
 	private String accountNumber;
 	private String ifscCode;
 	private String pfNumber;

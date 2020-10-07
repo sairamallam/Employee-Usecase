@@ -1,9 +1,11 @@
 package com.employee.model.identies;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.time.LocalDateTime;
 
-import org.hibernate.validator.constraints.Length;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +17,17 @@ import lombok.ToString;
 @ToString
 public class RelationShips {
 	@Id
-	@Length(max = 15)
-	private String relationShipId;
-	private String description;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer relationShipId;
+	private String relationShipsValue;
+	
+	
+	//madetory fields
+	private LocalDateTime entryDate;
+	private Integer	entryUser;
+	private LocalDateTime removeDate;
+	private Integer removeUser;
+	private String recordStatus;
+	
 
 }

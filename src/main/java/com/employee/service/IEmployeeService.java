@@ -4,15 +4,16 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import com.employee.dto.EmployeeDetailsDto;
 import com.employee.model.EmployeeDetails;
 
 public interface IEmployeeService {
 	
-	public ResponseEntity<String> registration(EmployeeDetails employeeDetails);
-	public ResponseEntity<String> update(EmployeeDetails employeeDetails);
-	public ResponseEntity<EmployeeDetails> getEmployee(Long employeeId);
-	public ResponseEntity<List<EmployeeDetails>> getAllEmployee();
-	public ResponseEntity<String> deleteEmployee(Long employeeId);
+	 ResponseEntity<String> registration(List<EmployeeDetailsDto> employeeDetailsDtos);
+	 ResponseEntity<String> update(EmployeeDetailsDto employeeDetailsDto);
+	 ResponseEntity<EmployeeDetails> getEmployee(Long employeeId);
+	 ResponseEntity<List<EmployeeDetailsDto>> getAllEmployee();
+	 ResponseEntity<String> deleteEmployee(Long employeeId);
 
 
 }

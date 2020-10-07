@@ -1,6 +1,7 @@
 package com.employee.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class EmployeeDetails implements Serializable {
 	private String state;
 	private String district;
 	private String address;
-	private String postcode;
+	private String pinCode;   
 
 	
 	//identity cards
@@ -63,5 +64,14 @@ public class EmployeeDetails implements Serializable {
 	private String pfNumber;
 	private String pfUan;
 	private String esiNumber;
+	private String photoPath;
+	
+	//madetory fields
+	private LocalDateTime entryDate;
+	private Integer	entryUser;
+	private LocalDateTime removeDate;
+	private Integer removeUser;
+	private String recordStatus;
+	
 
 }

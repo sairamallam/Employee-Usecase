@@ -13,28 +13,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
+import com.employee.dto.EmployeeDetailsDto;
 import com.employee.model.EmployeeDetails;
+import com.employee.model.identies.EmployeeDesignation;
+import com.employee.model.identies.EmployeeType;
 import com.employee.service.IEmployeeService;
 
 @RestController
 @RequestMapping("/employee")
 @CrossOrigin(origins = "*")
 public class EmployeeController {
-
+	
 	@Autowired
 	IEmployeeService iEmployeeService;
 
 	@PostMapping("/registration")
-	public ResponseEntity<String> registration(@RequestBody EmployeeDetails employeeDetails) {
-		return iEmployeeService.registration(employeeDetails);
+	public ResponseEntity<String> registration(@RequestBody List<EmployeeDetailsDto> employeeDetailsDtos) {
+		return iEmployeeService.registration(employeeDetailsDtos);
 
 	}
 
 	@PutMapping("/updation")
-	public ResponseEntity<String> update(@RequestBody EmployeeDetails employeeDetails) {
-		return iEmployeeService.update(employeeDetails);
+	public ResponseEntity<String> update(@RequestBody EmployeeDetailsDto employeeDetailsDto) {
+		return iEmployeeService.update(employeeDetailsDto);
 
 	}
 
@@ -45,9 +47,8 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/employees")
-	public ResponseEntity<List<EmployeeDetails>> getAllEmployee() {
-		
-		RestTemplate restTemplate=new RestTemplate();
+	public ResponseEntity<List<EmployeeDetailsDto>> getAllEmployee() {
+
 		return iEmployeeService.getAllEmployee();
 
 	}
@@ -57,7 +58,51 @@ public class EmployeeController {
 		return iEmployeeService.deleteEmployee(employeeId);
 
 	}
+
 	
+	// Designations operatios
+	@PostMapping("/designations")
+	public void addEployeeDesignation(@RequestBody EmployeeDesignation employeeDesignation) {
+
+	}
+
+	@DeleteMapping("/designations/{designationId}")
+	public void removeEmployeeDesignation(@PathVariable(name = "designationId") String employeeDesignationId) {
+
+	}
+
+	@GetMapping("/designations")
+	public void getAllEmployeeDesignation() {
+
+	}
+	@GetMapping("/designations/{designationId}")
+	public void getEmployeeDesignation(@PathVariable("designationId") String designationId) {
+
+	}
 	
+
+	// Employeetype operatios
+	@PostMapping("/type")
+	public void addEmployeeType(@RequestBody EmployeeType employeeType) {
+		
+	}
+	
+	@DeleteMapping("/type/{employeeTypeId}")
+	public void removeEmployeeType(@PathVariable("employeeTypeId") String employeeTypeId) {
+		
+	}
+	@GetMapping("/type/{employeeTypeId}")
+	public void getEmployeeType(@PathVariable("employeeTypeId") String employeeTypeId) {
+		
+	}
+	@GetMapping("/type")
+	public void getAllEmployeeType() {
+		
+	}
+	
+
+	// identity proofs type operations
+
+	// RelationShip operations
 
 }

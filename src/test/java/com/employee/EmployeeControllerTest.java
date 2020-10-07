@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.employee.controller.EmployeeController;
 import com.employee.model.EmployeeDetails;
-import com.employee.service.EmployeeService;
+import com.employee.service.impl.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
