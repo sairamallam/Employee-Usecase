@@ -26,9 +26,9 @@ public class EmployeeDesignation {
 	
 	//madetory fields
 	private LocalDateTime entryDate;
-	private Integer	entryUser;
+	private Long	entryUser;
 	private LocalDateTime removeDate;
-	private Integer removeUser;
+	private Long removeUser;
 	private String recordStatus;
 	
 

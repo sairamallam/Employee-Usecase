@@ -1,5 +1,6 @@
 package com.employee.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -25,20 +26,30 @@ public class EmployeeDesignationService implements IEmployeeDesignationService {
 		employeeDesignationRepository.save(employeeDesignation);
 		
 		MessageDto messageDto = new MessageDto();
-		messageDto.setMessage(" employee deleted sucessfully");
+		messageDto.setMessage("EmployeeDesignation added sucessfully");
 		return ResponseEntity.ok().body(messageDto);
 	}
 
 	@Override
 	public ResponseEntity<MessageDto> removeEmployeeDesignation(Integer employeeDesignationId) {
 		employeeDesignationRepository.deleteById(employeeDesignationId);
-		return null;
+
+		MessageDto messageDto = new MessageDto();
+		messageDto.setMessage("EmployeeDesignation deleted sucessfully");
+		return ResponseEntity.ok().body(messageDto);
 	}
 
 	@Override
 	public ResponseEntity<List<EmployeeDesignationDto>> getAllEmployeeDesignations() {
-		// TODO Auto-generated method stub
-		return null;
+		List<EmployeeDesignation> employeeDesignationList = employeeDesignationRepository.findAll();
+		List<EmployeeDesignationDto> employeeDesignationDtoList=new ArrayList<>();
+		employeeDesignationList.forEach(employeeDesignation->{
+			EmployeeDesignationDto employeeDesignationDto=new EmployeeDesignationDto();
+			BeanUtils.copyProperties(employeeDesignation, employeeDesignationDto);
+			employeeDesignationDtoList.add(employeeDesignationDto);
+		});
+		
+		return ResponseEntity.ok().body(employeeDesignationDtoList);
 	}
 
 }
